@@ -38,6 +38,9 @@ func AddPathWithGroup(p *Path, g *Group) (int64, error) {
         return id, err
     }
     m2m := o.QueryM2M(p, "Group")
+    if m2m.Exist(g) {
+        return id, errors.New("data existed")
+    }
     _, err = m2m.Add(g)
     return id, err
 }
@@ -63,10 +66,13 @@ func DelPathById(Id int64) (int64, error) {
 	return status, err
 }
 
-func GetPathByPathname(pathname string) (path Path) {
-	path = Path{Pathname: pathname}
+func GetPathByPathname(pathname string) (path *Path) {
+	path = &Path{Pathname: pathname}
 	o := orm.NewOrm()
-	o.Read(&path, "Pathname")
+	err := o.Read(path, "Pathname")
+    if err != nil {
+        return nil
+    }
 	return path
 }
 
@@ -95,7 +101,9 @@ func GetPathById(id int64) (path Path) {
 func PathAddGroup(p *Path, g *Group) error {
     o := orm.NewOrm()
     m2m := o.QueryM2M(p, "Group")
+    if m2m.Exist(g) {
+        return errors.New("data existed")
+    }
     _, err := m2m.Add(g)
     return err
 }
-

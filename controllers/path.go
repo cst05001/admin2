@@ -24,3 +24,25 @@ func (this *PathController) Add() {
     this.Ctx.WriteString("OK")
 }
 
+func (this *PathController) AddGroupToPath() {
+	pathname := this.GetString("pathname")
+	groupname := this.GetString("groupname")
+
+	path := models.GetPathByPathname(pathname)
+	if path == nil {
+		this.Ctx.WriteString("path 不存在")
+		return
+	}
+	group := models.GetGroupByGroupname(groupname)
+	if group == nil {
+		this.Ctx.WriteString("group 不存在")
+		return
+	}
+
+	err := models.PathAddGroup(path, group)
+	if err != nil {
+		this.Ctx.WriteString(err.Error())
+		return
+	}
+	this.Ctx.WriteString("Succcessed")
+}

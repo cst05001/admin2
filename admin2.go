@@ -33,11 +33,12 @@ func Run() {
     beego.Router("/user/login", &controllers.UserController{}, "post:Login")
     beego.Router("/admin", &controllers.AdminController{}, "get:Index")
     beego.Router("/path/add", &controllers.PathController{}, "post:Add")
+    beego.Router("/path/bindGroupAndPath", &controllers.PathController{}, "post:AddGroupToPath")
     beego.InsertFilter("/*", beego.BeforeRouter, Check)
 }
 
 func getPath(uri string) *models.Path {
-    path := strings.Split(uri, "?")[0]    
+    path := strings.Split(uri, "?")[0]
     for _, p := range(pathList) {
         if p.Pathname == path {
             return p
@@ -74,5 +75,3 @@ func isWhiteList(ctx *context.Context) bool {
     }
     return false
 }
-
-

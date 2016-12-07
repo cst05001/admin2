@@ -74,15 +74,19 @@ func Syncdb() {
     g := GetGroupByGroupname("admin")
     createUser()
     u := GetUserByUsername("admin")
-    GroupAddUser(&g, &u)
+    GroupAddUser(g, &u)
     p := &Path{Pathname: "/admin"}
-    AddPathWithGroup(p, &g)
+    AddPathWithGroup(p, g)
+    p = &Path{Pathname: "/path/add"}
+    AddPathWithGroup(p, g)
+    p = &Path{Pathname: "/path/bindGroupAndPath"}
+    AddPathWithGroup(p, g)
     createGroup("guest")
     g = GetGroupByGroupname("guest")
     p = &Path{Pathname: "/user/login"}
-    AddPathWithGroup(p, &g)
+    AddPathWithGroup(p, g)
     p = &Path{Pathname: "/static"}
-    AddPathWithGroup(p, &g)
+    AddPathWithGroup(p, g)
 }
 
 func createUser() {
@@ -135,4 +139,3 @@ func CheckLogin(username string, password string) (user User, err error) {
 	}
 	return user, nil
 }
-

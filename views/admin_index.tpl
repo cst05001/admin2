@@ -15,6 +15,7 @@
     </head>
     <body>
         <div class="container">
+            <!-- 添加用户 -->
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <form role="form" action="/user/add" method="post">
@@ -38,6 +39,7 @@
                     </form>
                 </div>
             </div>
+            <!-- 添加 path -->
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <form role="form" action="/path/add" method="post">
@@ -49,7 +51,22 @@
                     </form>
                 </div>
             </div>
+            <!-- 绑定已有的 path 和 group -->
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <form role="form" action="/path/bindGroupAndPath" method="post">
+                        <div class="form-group">
+                            <label for="pathname">path</label>
+                            <input type="text" class="form-control" id="pathname" name="pathname" placeholder="pathname">
+                        </div>
+                        <div class="form-group">
+                            <label for="groupname">group</label>
+                            <input type="text" class="form-control" id="groupname" name="groupname" placeholder="groupname">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Bind</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </body>
 </html>
-

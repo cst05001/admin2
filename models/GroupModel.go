@@ -48,10 +48,13 @@ func DelGroupById(Id int64) (int64, error) {
 	return status, err
 }
 
-func GetGroupByGroupname(groupname string) (group Group) {
-	group = Group{Groupname: groupname}
+func GetGroupByGroupname(groupname string) (group *Group) {
+	group = &Group{Groupname: groupname}
 	o := orm.NewOrm()
-	o.Read(&group, "Groupname")
+	err := o.Read(group, "Groupname")
+    if err != nil {
+        return nil
+    }
 	return group
 }
 
@@ -61,4 +64,3 @@ func GetGroupById(id int64) (group Group) {
 	o.Read(&group, "Id")
 	return group
 }
-
