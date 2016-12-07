@@ -7,7 +7,7 @@ import (
 
 type Group struct {
     Id  int64
-    Groupname    string `orm:"unique;size(32)" form:"Groupname"  valid:"Required;MaxSize(20);MinSize(6)"`
+    Groupname    string `orm:"unique;size(32)" form:"groupname"  valid:"Required`
     User    []*User `orm:"reverse(many)"`
     Path    []*Path `orm:"rel(m2m)"`
 }

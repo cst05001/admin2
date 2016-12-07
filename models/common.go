@@ -79,6 +79,8 @@ func Syncdb() {
     AddPathWithGroup(p, g)
     p = &Path{Pathname: "/path/add"}
     AddPathWithGroup(p, g)
+    p = &Path{Pathname: "/group/add"}
+    AddPathWithGroup(p, g)
     p = &Path{Pathname: "/path/bindGroupAndPath"}
     AddPathWithGroup(p, g)
     createGroup("guest")

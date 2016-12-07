@@ -21,19 +21,19 @@
                     <form role="form" action="/user/add" method="post">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" />
                         </div>
                         <div class="form-group">
                             <label for="Nickname">Username</label>
-                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Nickname">
+                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Nickname" />
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
                         </div>
                         <div class="form-group">
                             <label for="repassword">RePassword</label>
-                            <input type="password" class="form-control" id="repassword" name="repassword" placeholder="RePassword">
+                            <input type="password" class="form-control" id="repassword" name="repassword" placeholder="RePassword" />
                         </div>
                         <button type="submit" class="btn btn-primary">Add User</button>
                     </form>
@@ -45,7 +45,7 @@
                     <form role="form" action="/path/add" method="post">
                         <div class="form-group">
                             <label for="pathname">path</label>
-                            <input type="text" class="form-control" id="pathname" name="pathname" placeholder="pathname">
+                            <input type="text" class="form-control" id="pathname" name="pathname" placeholder="pathname" />
                         </div>
                         <button type="submit" class="btn btn-primary">Add Path</button>
                     </form>
@@ -57,13 +57,25 @@
                     <form role="form" action="/path/bindGroupAndPath" method="post">
                         <div class="form-group">
                             <label for="pathname">path</label>
-                            <input type="text" class="form-control" id="pathname" name="pathname" placeholder="pathname">
+                            <input type="text" class="form-control" id="pathname" name="pathname" placeholder="pathname" />
                         </div>
                         <div class="form-group">
                             <label for="groupname">group</label>
-                            <input type="text" class="form-control" id="groupname" name="groupname" placeholder="groupname">
+                            <input type="text" class="form-control" id="groupname" name="groupname" placeholder="groupname" />
                         </div>
                         <button type="submit" class="btn btn-primary">Bind</button>
+                    </form>
+                </div>
+            </div>
+            <!-- 添加 group -->
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <form role="form" action="/group/add" method="post">
+                        <div class="form-group">
+                            <label for="groupname">group</label>
+                            <input type="text" class="form-control" id="groupname" name="groupname" placeholder="groupname" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add</button>
                     </form>
                 </div>
             </div>

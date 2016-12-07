@@ -33,6 +33,7 @@ func Run() {
     beego.Router("/user/login", &controllers.UserController{}, "post:Login")
     beego.Router("/admin", &controllers.AdminController{}, "get:Index")
     beego.Router("/path/add", &controllers.PathController{}, "post:Add")
+    beego.Router("/group/add", &controllers.GroupController{}, "post:Add")
     beego.Router("/path/bindGroupAndPath", &controllers.PathController{}, "post:AddGroupToPath")
     beego.InsertFilter("/*", beego.BeforeRouter, Check)
 }
