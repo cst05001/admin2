@@ -2,9 +2,9 @@ package admin2
 
 import (
     "strings"
-	"github.com/cst05001/admin2/controllers"
-	"github.com/astaxie/beego/context"
-	"github.com/astaxie/beego"
+    "github.com/cst05001/admin2/controllers"
+    "github.com/astaxie/beego/context"
+    "github.com/astaxie/beego"
     "github.com/cst05001/admin2/models"
 )
 
@@ -19,15 +19,17 @@ func RequireLogin(ctx *context.Context) {
     return
 }
 
-func RequireGroup(ctx *context.Context, groupname string) {
+func RequireGroup(ctx *context.Context, groupnames ...string) {
     user := getUser(ctx)
     if user == nil {
         ctx.Redirect(302, "/user/login")
         return
     }
-    for _, user_group := range(user.Group) {
-        if user_group.Groupname == groupname {
-            return
+    for _, groupname := range(groupnames) {
+        for _, user_group := range(user.Group) {
+            if user_group.Groupname == groupname {
+                return
+            }
         }
     }
     ctx.WriteString("权限不足")
