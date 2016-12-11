@@ -36,3 +36,6 @@
     ./YOUR_APP_NAME syncdb
 
 默认账号密码都是 admin
+
+*问：如何修改密码？*  
+答：暂时没有，有没有熟悉前端 HTML、Bootstrap/VUE 的同学一起参与啊？？？？
