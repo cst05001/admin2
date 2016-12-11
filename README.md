@@ -1,6 +1,8 @@
-# admin2
+#admin2
 
-## 用法
+##用法
+
+###代码调用
 
     package controllers
 
@@ -19,3 +21,11 @@
         c.Data["Email"] = "astaxie@gmail.com"
         c.TplName = "index.tpl"
     }
+
+###初始化数据库
+
+在你的 beego 程序中执行参数
+
+    ./YOUR_APP_NAME syncdb
+
+默认账号密码都是 admin
