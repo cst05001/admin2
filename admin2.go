@@ -1,14 +1,14 @@
 package admin2
 
 import (
-    "strings"
+    // "strings"
     "github.com/cst05001/admin2/controllers"
     "github.com/astaxie/beego/context"
     "github.com/astaxie/beego"
     "github.com/cst05001/admin2/models"
 )
 
-var pathList []*models.Path
+// var pathList []*models.Path
 
 func RequireLogin(ctx *context.Context) {
     user := getUser(ctx)
@@ -53,7 +53,7 @@ func Check(ctx *context.Context) {
 
 func init() {
     models.Init()
-    pathList = models.GetAllPath()
+    // pathList = models.GetAllPath()
     registerRouter()
 }
 
@@ -67,6 +67,7 @@ func registerRouter() {
     // beego.InsertFilter("/*", beego.BeforeRouter, Check)
 }
 
+/*
 func getPath(uri string) *models.Path {
     path := strings.Split(uri, "?")[0]
     for _, p := range(pathList) {
@@ -76,6 +77,7 @@ func getPath(uri string) *models.Path {
     }
     return nil
 }
+*/
 
 func getUser(ctx *context.Context) *models.User {
     v := ctx.Input.Session("userinfo")
