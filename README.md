@@ -2,6 +2,13 @@
 
 ##用法
 
+###角色
+
+这个后台管理系统有 2 个角色，分别是 User、Group。 User 可以属于一个或者多个 Group。代码针对 Group 进行权限管控。主要管控语句有
+
+* func RequireLogin(ctx *context.Context)
+* func RequireGroup(ctx *context.Context, groupnames ...string)
+
 ###代码调用
 
     package controllers
